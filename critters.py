@@ -74,19 +74,25 @@ class Critter:
 
 
 class Cow(Critter):
-  def __init__(self, location):
-    super().__init__(location)
-    self.dirs = [Direction.NORTH, Direction.SOUTH,
-                 Direction.EAST, Direction.WEST]
-    self.move_number = 0
+    def __init__(self, location):
+        super().__init__(location)
+        self.dirs = [Direction.NORTH, Direction.SOUTH,
+                     Direction.EAST, Direction.WEST]
+        self.move_number = 0
 
-  def get_move(self, neighbors):
-    i = self.move_number % 4
-    self.move_number = self.move_number + 1
-    return self.dirs[i]
+    def __str__(self):
+        return "M"
 
-  def fight(self, opponent):
-    return random.choice([Attack.POUNCE, Attack.SCRATCH])
+    def get_move(self, neighbors):
+        i = self.move_number % 4
+        self.move_number = self.move_number + 1
+        return self.dirs[i]
+
+    def fight(self, opponent):
+        return random.choice([Attack.POUNCE, Attack.SCRATCH])
+
+    def get_color(self):
+        return "brown"
 
 class ScaredCat(Critter):
     # TODO: implement this
