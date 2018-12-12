@@ -38,6 +38,7 @@ class Attack(Enum):
     ROAR = 1
     POUNCE = 2
     SCRATCH = 3
+    FORFEIT = 4
 
 
 class Critter:
@@ -489,9 +490,10 @@ def battle(critter1, critter2):
             return critter1, critter2
         else:
             return critter2, critter1
-    elif c1_attack == Attack.ROAR and c2_attack == Attack.SCRATCH \
-    or c1_attack == Attack.SCRATCH and c2_attack == Attack.POUNCE \
-    or c1_attack == Attack.POUNCE and c2_attack == Attack.ROAR:
+    elif c2_attack == Attack.FORFEIT \
+        or c1_attack == Attack.ROAR and c2_attack == Attack.SCRATCH \
+        or c1_attack == Attack.SCRATCH and c2_attack == Attack.POUNCE \
+        or c1_attack == Attack.POUNCE and c2_attack == Attack.ROAR:
         return critter1, critter2
     else:
         return critter2, critter1
