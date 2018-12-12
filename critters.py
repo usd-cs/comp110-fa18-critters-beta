@@ -50,7 +50,7 @@ class Critter:
         Returns a string representation of this critter.
         This representation is used when fighting another critter.
         """
-        return "C"
+        return "?"
 
     def get_move(self, neighbors):
         """ Gets the next move the critter wants to make. """
@@ -58,11 +58,11 @@ class Critter:
 
     def fight(self, opponent):
         """ Gets the next fight move for the critter. """
-        return Attack.ROAR
+        return Attack.FORFEIT
 
     def eat(self):
         """ Returns True if the critter wants to eat, False otherwise. """
-        return True
+        return False
 
     def get_color(self):
         return "Blue"
